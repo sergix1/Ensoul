@@ -244,6 +244,7 @@ namespace DarkMage
             if (!NotKilleableWithOtherSpells(rTarget,core)) return false;
 
             var totalDamageR = RDamage(rTarget,core);
+            Game.Print(totalDamageR);
             if (rTarget.Health <= totalDamageR)
             {
                 GetR.Cast(rTarget);
@@ -253,8 +254,38 @@ namespace DarkMage
 
         public float RDamage(AIHeroClient target,SyndraCore core)
         {
-            var damagePerBall = (GetR.GetDamage(target)/3);
-            var totalDamageR = GetR.GetDamage(target,DamageStage.Default) + damagePerBall*core.GetOrbs.Count;
+            // calcular daño por esfera.
+            var damageBaseSphere = 0;
+            var damageBaseR = 0;
+            switch (GetR.Level)
+            {
+                case 0:
+                    break;
+                    ;
+                case 1:
+                    damageBaseSphere = 90;
+                    break;
+                case 2:
+                    damageBaseSphere = 140;
+                    damageBaseR = 420;
+                    break;
+                case 3:
+                    damageBaseSphere = 190;
+                    damageBaseR = 570;
+                    break;
+                default:
+                    break;
+            }
+
+            float magicDamage = (int)(GameObjects.Player.TotalMagicalDamage * 0.20f);
+
+            var damagePerBall = damageBaseSphere+magicDamage;
+
+            var damageR = damageBaseR + (int) (GameObjects.Player.TotalMagicalDamage * 0.60f);
+            var damageRTarget = damageR;//+target.get;
+            // Game.Print("damage magic: " + target.);//GetR.GetDamage(target, DamageStage.Default));
+          // Game.Print("Total damage r : " +target.BonusArmor);
+            var totalDamageR = damageRTarget + damagePerBall*core.GetOrbs.Count;
             return totalDamageR;
         }
         public float RDamage(AIHeroClient target,int NSpeheres)
@@ -289,7 +320,9 @@ namespace DarkMage
              //   if (!checkFirst) continue;
                 if (target.CharacterName != tar.Name) continue;
                 //if (core.GetMenu.GetMenu.Item(target.CharacterName).GetValue<bool>())
-                    return tar.CastRToDat();
+                return true;
+                //   return tar.CastRToDat();
+
             }
 
             return true;//core.GetMenu.GetMenu.Item(target.ChampionName).GetValue<bool>();

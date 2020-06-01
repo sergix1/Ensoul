@@ -115,7 +115,7 @@ private void OnGapcloser(ActiveGapcloser gapcloser)
             var drawR = GetMenu.GetBoolOption("DR");
             var drawOrb = GetMenu.GetBoolOption("DO");
             var drawOrbText = GetMenu.GetBoolOption("DST");
-            var drawHarassTogle = GetMenu.GetBoolOption("DHT");
+            var drawHarassTogle = GetMenu.HKey.Active;
 
             if (ObjectManager.Player.IsDead)
             {
