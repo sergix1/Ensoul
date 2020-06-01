@@ -254,7 +254,7 @@ namespace DarkMage
         public float RDamage(AIHeroClient target,SyndraCore core)
         {
             var damagePerBall = (GetR.GetDamage(target)/3);
-            var totalDamageR = GetR.GetDamage(target) + damagePerBall*core.GetOrbs.Count;
+            var totalDamageR = GetR.GetDamage(target,DamageStage.Default) + damagePerBall*core.GetOrbs.Count;
             return totalDamageR;
         }
         public float RDamage(AIHeroClient target,int NSpeheres)
@@ -265,7 +265,7 @@ namespace DarkMage
         }
         public bool CastRCheck(AIHeroClient target, SyndraCore core)
         {
-            var checkZhoniaMenu = false;//core.GetMenu.GetMenu("DONTRZHONYA").GetValue<bool>();
+            var checkZhoniaMenu = core.GetMenu.GetBoolOption("DONTRZHONYA");
             if (checkZhoniaMenu)
             {
                 //Zhonias lol

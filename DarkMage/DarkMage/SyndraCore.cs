@@ -32,33 +32,60 @@ namespace DarkMage
          _tittle = "[Syndra]Dark Mage by sergix";
             _version = "2.0.0.0";
             GameEvent.OnGameLoad += OnLoad;
+            EnsoulSharp.SDK.Gapcloser.OnGapcloser += OnGapCloser;
+            EnsoulSharp.SDK.Interrupter.OnInterrupterSpell += OnInterrupt;
         }
 
-       /* private void OnInterrupt(AIHeroClient sender, Interrupter2.InterruptableTargetEventArgs args)
+        private void OnInterrupt(AIHeroClient sender, Interrupter.InterruptSpellArgs args)
         {
-            bool onI = GetMenu.GetMenu.Item("IE");
+            bool onI = GetMenu.GetBoolOption("IE");
             if (onI)
             {
-                if (sender.IsValidTarget(300)&&GetSpells.GetE.IsInRange(sender))
+                if (sender.IsValidTarget(300) && GetSpells.GetE.IsInRange(sender))
                 {
                     GetSpells.GetE.Cast(sender.Position);
                 }
             }
         }
 
-        private void OnGapcloser(ActiveGapcloser gapcloser)
+        private void OnGapCloser(AIHeroClient sender, Gapcloser.GapcloserArgs args)
         {
-            bool onGap=GetMenu.GetMenu.Item("AE");
+            bool onGap = GetMenu.GetBoolOption("AE");
             if (onGap)
             {
-                if (gapcloser.Sender.IsValidTarget(300))
+                if (sender.IsValidTarget(300))
                 {
-                    GetSpells.GetE.Cast(gapcloser.Sender);
+                    GetSpells.GetE.Cast(sender);
+
                 }
             }
-        }*/
+        }
 
-        private void OnLoad()
+        /* private void OnInterrupt(AIHeroClient sender, Interrupter2.InterruptableTargetEventArgs args)
+{
+   bool onI = GetMenu.GetMenu.Item("IE");
+   if (onI)
+   {
+       if (sender.IsValidTarget(300)&&GetSpells.GetE.IsInRange(sender))
+       {
+           GetSpells.GetE.Cast(sender.Position);
+       }
+   }
+}
+
+private void OnGapcloser(ActiveGapcloser gapcloser)
+{
+   bool onGap=GetMenu.GetMenu.Item("AE");
+   if (onGap)
+   {
+       if (gapcloser.Sender.IsValidTarget(300))
+       {
+           GetSpells.GetE.Cast(gapcloser.Sender);
+       }
+   }
+}*/
+
+                private void OnLoad()
         {
             if (ObjectManager.Player.CharacterName != "Syndra") return;
             Game.Print("<b><font color =\"#FF33D6\">Dark Mage Loaded!</font></b>");

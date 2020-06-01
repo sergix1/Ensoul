@@ -20,7 +20,7 @@ namespace DarkMage
         }
         private void Ondraw(EventArgs args)
         {
-        /*   var  DrawTotalDamage = core.GetMenu.GetBoolOption("DTD");
+        /*  var  DrawTotalDamage = core.GetMenu.GetBoolOption("DTD");
        
             if (!DrawTotalDamage) return;
             const int width = 103;
@@ -45,6 +45,7 @@ namespace DarkMage
                 var pos1 = barPos.X + xOffset + (107 * percentHealthAfterDamage);
                 var differenceInHp = xPosCurrentHp - xPosDamage;
                 var hpPos = tar.HPBarPosition;
+              //  var hp = tar.HPBarPosition.
                 var currentXPos= hpPos.X;
 
 
@@ -62,15 +63,15 @@ namespace DarkMage
                     rdmgDraw = (rDamage / totalSpellDamage);
                 for (var i = 0; i < differenceInHp; i++)
                 {
-                /*    if (rDamage!=0 && i < rdmgDraw * differenceInHp)
+                   if (rDamage!=0 && i < rdmgDraw * differenceInHp)
                         Drawing.DrawLine(pos1 + i, yPos, pos1 + i, yPos + height, 1, System.Drawing.Color.Red);
                     else if (eDamage!=0 && i < (rdmgDraw + edmgDraw) * differenceInHp)
                         Drawing.DrawLine(pos1 + i, yPos, pos1 + i, yPos + height, 1, System.Drawing.Color.OrangeRed);
                     else if (wDamage != 0 && i < (rdmgDraw + edmgDraw + wdmgDraw) * differenceInHp)
                         Drawing.DrawLine(pos1 + i, yPos, pos1 + i, yPos + height, 1, System.Drawing.Color.Yellow);
                     else if (qDamage != 0 && i < (rdmgDraw + edmgDraw + wdmgDraw + qdmgDraw) * differenceInHp)
-                        Drawing.DrawLine(pos1 + i, yPos, pos1 + i, yPos + height, 1, System.Drawing.Color.Aqua);*/
-/*
+                        Drawing.DrawLine(pos1 + i, yPos, pos1 + i, yPos + height, 1, System.Drawing.Color.Aqua);
+
 
                 }
                 if(core.GetSpells.GetR.IsReady())

@@ -93,9 +93,11 @@ namespace DarkMage
                     _targetsRMe.Add(new MenuBool(hero.CharacterName, hero.CharacterName).SetValue(true));
                 }
             }
+            var DONTRZHONYA = new MenuBool("DONTRZHONYA", "Dont R if enemy has zhonia active").SetValue(false);
+            menuBools.Add(DONTRZHONYA);
             _dontRIfSpellReady = new EnsoulSharp.SDK.MenuUI.Menu ("R Spells", "Dont R if");
             {
-               _dontRIfSpellReady.Add(new MenuBool("DONTRZHONYA", "Dont R if enemy has zhonia active").SetValue(false));
+               _dontRIfSpellReady.Add(DONTRZHONYA);
                 foreach (AIHeroClient hero in GameObjects.EnemyHeroes)
                 {
                     foreach (String s in Lists.DontRSpellList)
@@ -176,10 +178,14 @@ namespace DarkMage
 
         public override void LoadMiscMenu()
         {
-            _miscMenu = new EnsoulSharp.SDK.MenuUI.Menu ("Misc", "Misc Menu");
+            var AE = new MenuBool("AE", "Use E Antigapclose").SetValue(true);
+            var IE = new MenuBool("IE", "Use E Interrupt").SetValue(true);
+            menuBools.Add(AE);
+            menuBools.Add(IE);
+                _miscMenu = new EnsoulSharp.SDK.MenuUI.Menu ("Misc", "Misc Menu");
             {
-                _miscMenu.Add(new MenuBool("AE", "Use E Antigapclose").SetValue(true));
-                _miscMenu.Add(new MenuBool("IE", "Use E Interrupt").SetValue(true));
+                _miscMenu.Add(AE);
+                _miscMenu.Add(IE);
        
             }
             base.LoadMiscMenu();
