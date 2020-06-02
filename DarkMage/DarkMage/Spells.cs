@@ -105,7 +105,7 @@ namespace DarkMage
         {
             if (!GetE.IsReady()) return false;
             var ePred = Eany.GetPrediction(t);
-            if (ePred.Hitchance >= HitChance.VeryHigh)
+            if (ePred.Hitchance >= HitChance.High)
             {
                 var playerToCP = ObjectManager.Player.Distance(ePred.CastPosition);
                 foreach (var pos in GetOrbs.GetOrbs())
