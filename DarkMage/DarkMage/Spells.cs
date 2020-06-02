@@ -244,7 +244,7 @@ namespace DarkMage
             if (!NotKilleableWithOtherSpells(rTarget,core)) return false;
 
             var totalDamageR = RDamage(rTarget,core);
-            Game.Print(totalDamageR);
+
             if (rTarget.Health <= totalDamageR)
             {
                 GetR.Cast(rTarget);

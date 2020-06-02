@@ -171,7 +171,7 @@ namespace DarkMage
             GetMenu.Add(_targetsRMe);
             GetMenu.Add(_dontRIfSpellReady);
             GetMenu.Add(_keyMenu);
-         //   GetMenu.Add(_miscMenu);
+            GetMenu.Add(_miscMenu);
             GetMenu.Add(_drawingMenu);
             base.CloseMenu();
         }
