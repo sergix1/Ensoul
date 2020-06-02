@@ -26,13 +26,13 @@ namespace DarkMage
             if (qeTarget != null)
             {
 
-                if (!core.GetSpells.castE(qeTarget))
-                {
+               // if (!core.GetSpells.castE(qeTarget))
+               // {
                     if (useQ)
                         core.GetSpells.CastQ();
                     if (useW)
                         core.GetSpells.CastW();
-                }
+              //  }
                 if (useE)
                 {
                     var eTarget = TargetSelector.GetTarget(core.GetSpells.EQ.Range, DamageType.Magical);

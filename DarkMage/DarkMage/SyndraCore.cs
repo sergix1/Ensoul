@@ -41,7 +41,7 @@ namespace DarkMage
             bool onI = GetMenu.GetBoolOption("IE");
             if (onI)
             {
-                if (sender.IsValidTarget(300) && GetSpells.GetE.IsInRange(sender))
+                if (sender.Distance(GameObjects.Player)<300 && GetSpells.GetE.IsInRange(sender))
                 {
                     GetSpells.GetE.Cast(sender.Position);
                 }
@@ -53,7 +53,7 @@ namespace DarkMage
             bool onGap = GetMenu.GetBoolOption("AE");
             if (onGap)
             {
-                if (sender.IsValidTarget(300))
+                if (sender.Distance(GameObjects.Player)<300)
                 {
                     GetSpells.GetE.Cast(sender);
 
